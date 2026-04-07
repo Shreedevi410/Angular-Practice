@@ -1,0 +1,16 @@
+<div class="todo-container">
+  <h1>My Todo List</h1>
+  
+  @if (todos().length === 0) {
+    <p class="empty-message">No todos yet. Add one to get started!</p>
+  } @else {
+    <ul class="todo-list">
+      @for (item of todos(); track item.id) {
+        <li class="todo-item" [class.completed]="item.completed">
+          <input type="checkbox" [checked]="item.completed" class="checkbox" />
+          <span class="todo-title">{{ item.title }}</span>
+        </li>
+      }
+    </ul>
+  }
+</div>
